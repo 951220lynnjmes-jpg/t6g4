@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071c2c">
+  <meta name="description" content="依體重、運動量與氣候計算每日建議喝水量，並定時提醒你補水。">
+  <title>喝水提醒｜算出今天該喝多少水</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true">
+    <span class="blob blob-a"></span>
+    <span class="blob blob-b"></span>
+    <span class="blob blob-c"></span>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="喝水提醒首頁">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 3.2c3.6 4 6 6.9 6 10a6 6 0 0 1-12 0c0-3.1 2.4-6 6-10Z" fill="currentColor"/>
+          <path d="M9.4 13.4a2.8 2.8 0 0 0 2.3 3" stroke="#071c2c" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>喝水提醒</span>
+    </a>
+    <p class="today" id="todayLabel"></p>
+  </header>
+
+  <main class="page">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">每日補水計畫</p>
+        <h1 id="heroTitle">今天，<br>該喝多少水？</h1>
+        <p class="lede">輸入體重、運動時間與氣候，算出你的每日喝水目標。時間到了，我們會提醒你補水。</p>
+
+        <form class="calc-card" id="calcForm" novalidate>
+          <div class="calc-grid">
+            <label class="field">
+              <span class="field-label">體重 <em>kg</em></span>
+              <input id="weightInput" name="weight" type="number" inputmode="decimal" min="20" max="250" step="0.5" value="60" required>
+            </label>
+            <label class="field">
+              <span class="field-label">今日運動 <em>分鐘</em></span>
+              <input id="exerciseInput" name="exercise" type="number" inputmode="numeric" min="0" max="600" step="5" value="30" required>
+            </label>
+            <label class="field">
+              <span class="field-label">氣候</span>
+              <select id="climateInput" name="climate">
+                <option value="1">一般</option>
+                <option value="1.15">炎熱</option>
+                <option value="1.08">乾燥</option>
+                <option value="1.05">寒冷</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn btn-primary calc-btn" type="submit">計算每日目標</button>
+          <p class="calc-hint" id="calcHint">以體重 × 30 ml 為基礎，加上運動與氣候調整。</p>
+        </form>
+      </div>
+
+      <aside class="goal-card" aria-label="今日喝水目標">
+        <div class="goal-head">
+          <span class="goal-label">今日目標</span>
+          <span class="goal-badge" id="goalBadge">補水中</span>
+        </div>
+
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 160 160" role="img" aria-labelledby="ringTitle">
+            <title id="ringTitle">今日喝水進度</title>
+            <defs>
+              <linearGradient id="ringGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5eead4"/>
+                <stop offset="55%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#818cf8"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-track" cx="80" cy="80" r="68"></circle>
+            <circle class="ring-fill" id="ringFill" cx="80" cy="80" r="68"></circle>
+          </svg>
+          <div class="ring-center">
+            <span class="ring-percent" id="ringPercent">0%</span>
+            <span class="ring-sub">已完成</span>
+          </div>
+        </div>
+
+        <div class="goal-meta">
+          <div>
+            <span class="meta-label">建議攝取</span>
+            <strong class="meta-value" id="goalLiters">2.0 L</strong>
+          </div>
+          <div class="meta-divider" aria-hidden="true"></div>
+          <div>
+            <span class="meta-label">還需要</span>
+            <strong class="meta-value" id="remainingMl">2000 ml</strong>
+          </div>
+        </div>
+
+        <p class="goal-foot" id="goalFoot">約 8 杯水（每杯 250 ml）</p>
+      </aside>
+    </section>
+
+    <section class="grid" aria-label="飲水紀錄與提醒設定">
+      <article class="card tracker" aria-labelledby="trackerTitle">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">飲水紀錄</p>
+            <h2 id="trackerTitle">今天喝了多少</h2>
+          </div>
+          <button class="btn btn-ghost btn-small" id="resetBtn" type="button">清除今日</button>
+        </div>
+
+        <div class="consumed">
+          <div class="consumed-main">
+            <span class="consumed-num" id="consumedMl">0</span>
+            <span class="consumed-unit">ml</span>
+          </div>
+          <p class="consumed-sub" id="cupCount">約 0 杯 · 尚無紀錄</p>
+        </div>
+
+        <div class="quick-add" role="group" aria-label="快速新增飲水量">
+          <button class="quick" type="button" data-ml="150">+150<span>ml</span></button>
+          <button class="quick" type="button" data-ml="250">+250<span>ml</span></button>
+          <button class="quick" type="button" data-ml="500">+500<span>ml</span></button>
+          <button class="quick" type="button" data-ml="750">+750<span>ml</span></button>
+        </div>
+
+        <form class="custom-add" id="customAddForm">
+          <label class="sr-only" for="customMl">自訂飲水量（毫升）</label>
+          <input id="customMl" type="number" inputmode="numeric" min="1" max="3000" step="1" placeholder="自訂 ml">
+          <button class="btn btn-soft" type="submit">記錄</button>
+        </form>
+
+        <div class="history-head">
+          <span>紀錄</span>
+          <button class="link-btn" id="undoBtn" type="button" disabled>撤銷上一筆</button>
+        </div>
+        <ol class="history" id="historyList" aria-live="polite"></ol>
+      </article>
+
+      <article class="card reminder" aria-labelledby="reminderTitle">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">智慧提醒</p>
+            <h2 id="reminderTitle">喝水提醒</h2>
+          </div>
+          <span class="status-pill" id="reminderPill"><i></i>未開啟</span>
+        </div>
+
+        <div class="reminder-status">
+          <span class="drop-pulse" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3.2c3.6 4 6 6.9 6 10a6 6 0 0 1-12 0c0-3.1 2.4-6 6-10Z" fill="currentColor"/>
+            </svg>
+          </span>
+          <div>
+            <p class="status-title" id="reminderState">提醒目前關閉</p>
+            <p class="status-sub" id="nextReminder">開啟後，會在提醒時段內定時通知你。</p>
+          </div>
+        </div>
+
+        <div class="settings">
+          <label class="field">
+            <span class="field-label">提醒頻率</span>
+            <select id="intervalInput">
+              <option value="15">每 15 分鐘</option>
+              <option value="30">每 30 分鐘</option>
+              <option value="45">每 45 分鐘</option>
+              <option value="60" selected>每 1 小時</option>
+              <option value="90">每 1.5 小時</option>
+              <option value="120">每 2 小時</option>
+            </select>
+          </label>
+          <div class="time-range">
+            <label class="field">
+              <span class="field-label">開始</span>
+              <input id="startInput" type="time" value="09:00">
+            </label>
+            <label class="field">
+              <span class="field-label">結束</span>
+              <input id="endInput" type="time" value="21:00">
+            </label>
+          </div>
+        </div>
+
+        <div class="reminder-actions">
+          <button class="btn btn-primary" id="reminderToggle" type="button">開啟提醒</button>
+          <button class="btn btn-ghost" id="testBtn" type="button">測試通知</button>
+        </div>
+
+        <p class="note">提醒使用瀏覽器通知，需要保持此頁面開啟。若封鎖通知，仍會在頁面內顯示提示。</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>喝水提醒 · 資料僅儲存在你的裝置</p>
+    <p class="footer-tip">一般成人每日約 1500–3000 ml，請依身體狀況與醫師建議調整。</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>

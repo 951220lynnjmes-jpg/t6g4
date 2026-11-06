@@ -1,0 +1,241 @@
+:root {
+    color-scheme: light;
+    --bg: #eef2f7;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #667085;
+    --line: #d8e0ec;
+    --accent: #3256d8;
+    --accent-strong: #2443b8;
+    --danger: #b42318;
+    --danger-bg: #fef3f2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    background:
+        radial-gradient(circle at top left, #dbe6ff 0, transparent 38rem),
+        var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", "Noto Sans TC", system-ui, sans-serif;
+}
+
+.app {
+    width: min(42rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    background: var(--card);
+    box-shadow: 0 1.5rem 3rem rgba(23, 32, 51, 0.12);
+}
+
+.app-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+    margin: 0 0 0.35rem;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    line-height: 1;
+}
+
+.remaining {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.todo-form {
+    display: flex;
+    gap: 0.65rem;
+}
+
+.todo-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: #f9fbff;
+    color: var(--text);
+    font: inherit;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.todo-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(50, 86, 216, 0.15);
+}
+
+.todo-form button {
+    padding: 0.85rem 1.2rem;
+    border: 0;
+    border-radius: 0.75rem;
+    background: var(--accent);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 120ms ease;
+}
+
+.todo-form button:hover {
+    background: var(--accent-strong);
+}
+
+.error {
+    margin: 0.75rem 0 0;
+    padding: 0.7rem 0.9rem;
+    border-radius: 0.6rem;
+    background: var(--danger-bg);
+    color: var(--danger);
+    font-size: 0.9rem;
+}
+
+.filters {
+    display: flex;
+    gap: 0.4rem;
+    margin: 1.5rem 0 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.filters button {
+    padding: 0.45rem 0.8rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background: #eef2fb;
+    color: var(--text);
+}
+
+.filters button.active {
+    background: #e6ecff;
+    color: var(--accent);
+}
+
+.todo-list {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: #fff;
+    animation: slide-in 160ms ease;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+}
+
+.todo-item input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.todo-item .title {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.todo-item.completed .title {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.todo-item .delete {
+    padding: 0.35rem 0.6rem;
+    border: 0;
+    border-radius: 0.45rem;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.todo-item .delete:hover {
+    background: var(--danger-bg);
+    color: var(--danger);
+}
+
+.empty {
+    margin: 1.5rem 0 0.5rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 32rem) {
+    body {
+        padding: 1rem;
+    }
+
+    .app {
+        padding: 1.25rem;
+    }
+
+    .app-header {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .todo-form {
+        flex-direction: column;
+    }
+}

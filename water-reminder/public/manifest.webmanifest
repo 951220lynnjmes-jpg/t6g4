@@ -1,0 +1,33 @@
+{
+  "name": "喝水提醒｜每日補水計算",
+  "short_name": "喝水提醒",
+  "description": "依體重、運動量與氣候計算每日建議喝水量，並定時提醒你補水。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#061725",
+  "theme_color": "#071c2c",
+  "categories": ["health", "lifestyle", "utilities"],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

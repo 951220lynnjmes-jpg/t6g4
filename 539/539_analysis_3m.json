@@ -1,0 +1,405 @@
+{
+  "window": {
+    "from": "2026-08-01",
+    "to": "2026-10-26",
+    "draws": 74
+  },
+  "latestDraw": {
+    "period": "115000259",
+    "date": "2026-10-26",
+    "numbers": [
+      13,
+      15,
+      19,
+      28,
+      35
+    ]
+  },
+  "overall": {
+    "odd": 182,
+    "even": 188,
+    "oddPct": 49.19,
+    "sumMin": 59,
+    "sumMax": 152,
+    "sumAvg": 96.73,
+    "sumStd": 23.69,
+    "oddPerDraw": {
+      "0": 4,
+      "1": 12,
+      "2": 24,
+      "3": 15,
+      "4": 18,
+      "5": 1
+    },
+    "zones": {
+      "1-13": 129,
+      "14-26": 125,
+      "27-39": 116
+    }
+  },
+  "hotNumbers": [
+    30,
+    23,
+    19,
+    7,
+    2,
+    34,
+    12,
+    8
+  ],
+  "coldNumbers": [
+    31,
+    21,
+    1,
+    36,
+    37
+  ],
+  "mostOverdue": [
+    37,
+    29,
+    33,
+    5,
+    11,
+    31,
+    21,
+    6
+  ],
+  "frequency": [
+    {
+      "number": 30,
+      "count": 16,
+      "pct": 21.62,
+      "overdue": 5,
+      "score": 0.6328
+    },
+    {
+      "number": 23,
+      "count": 14,
+      "pct": 18.92,
+      "overdue": 3,
+      "score": 0.5447
+    },
+    {
+      "number": 19,
+      "count": 14,
+      "pct": 18.92,
+      "overdue": 0,
+      "score": 0.525
+    },
+    {
+      "number": 7,
+      "count": 13,
+      "pct": 17.57,
+      "overdue": 2,
+      "score": 0.5006
+    },
+    {
+      "number": 2,
+      "count": 12,
+      "pct": 16.22,
+      "overdue": 11,
+      "score": 0.5221
+    },
+    {
+      "number": 34,
+      "count": 12,
+      "pct": 16.22,
+      "overdue": 9,
+      "score": 0.509
+    },
+    {
+      "number": 12,
+      "count": 12,
+      "pct": 16.22,
+      "overdue": 6,
+      "score": 0.4893
+    },
+    {
+      "number": 8,
+      "count": 12,
+      "pct": 16.22,
+      "overdue": 3,
+      "score": 0.4697
+    },
+    {
+      "number": 17,
+      "count": 12,
+      "pct": 16.22,
+      "overdue": 1,
+      "score": 0.4566
+    },
+    {
+      "number": 35,
+      "count": 12,
+      "pct": 16.22,
+      "overdue": 0,
+      "score": 0.45
+    },
+    {
+      "number": 6,
+      "count": 11,
+      "pct": 14.86,
+      "overdue": 12,
+      "score": 0.4912
+    },
+    {
+      "number": 25,
+      "count": 11,
+      "pct": 14.86,
+      "overdue": 8,
+      "score": 0.465
+    },
+    {
+      "number": 32,
+      "count": 11,
+      "pct": 14.86,
+      "overdue": 7,
+      "score": 0.4584
+    },
+    {
+      "number": 38,
+      "count": 11,
+      "pct": 14.86,
+      "overdue": 5,
+      "score": 0.4453
+    },
+    {
+      "number": 3,
+      "count": 11,
+      "pct": 14.86,
+      "overdue": 2,
+      "score": 0.4256
+    },
+    {
+      "number": 14,
+      "count": 11,
+      "pct": 14.86,
+      "overdue": 2,
+      "score": 0.4256
+    },
+    {
+      "number": 28,
+      "count": 11,
+      "pct": 14.86,
+      "overdue": 0,
+      "score": 0.4125
+    },
+    {
+      "number": 4,
+      "count": 10,
+      "pct": 13.51,
+      "overdue": 4,
+      "score": 0.4012
+    },
+    {
+      "number": 13,
+      "count": 10,
+      "pct": 13.51,
+      "overdue": 0,
+      "score": 0.375
+    },
+    {
+      "number": 29,
+      "count": 9,
+      "pct": 12.16,
+      "overdue": 17,
+      "score": 0.449
+    },
+    {
+      "number": 5,
+      "count": 9,
+      "pct": 12.16,
+      "overdue": 16,
+      "score": 0.4424
+    },
+    {
+      "number": 9,
+      "count": 9,
+      "pct": 12.16,
+      "overdue": 8,
+      "score": 0.39
+    },
+    {
+      "number": 18,
+      "count": 9,
+      "pct": 12.16,
+      "overdue": 4,
+      "score": 0.3637
+    },
+    {
+      "number": 24,
+      "count": 9,
+      "pct": 12.16,
+      "overdue": 1,
+      "score": 0.3441
+    },
+    {
+      "number": 15,
+      "count": 9,
+      "pct": 12.16,
+      "overdue": 0,
+      "score": 0.3375
+    },
+    {
+      "number": 20,
+      "count": 8,
+      "pct": 10.81,
+      "overdue": 7,
+      "score": 0.3459
+    },
+    {
+      "number": 16,
+      "count": 8,
+      "pct": 10.81,
+      "overdue": 6,
+      "score": 0.3393
+    },
+    {
+      "number": 27,
+      "count": 8,
+      "pct": 10.81,
+      "overdue": 1,
+      "score": 0.3066
+    },
+    {
+      "number": 33,
+      "count": 7,
+      "pct": 9.46,
+      "overdue": 17,
+      "score": 0.374
+    },
+    {
+      "number": 11,
+      "count": 7,
+      "pct": 9.46,
+      "overdue": 16,
+      "score": 0.3674
+    },
+    {
+      "number": 10,
+      "count": 7,
+      "pct": 9.46,
+      "overdue": 7,
+      "score": 0.3084
+    },
+    {
+      "number": 26,
+      "count": 7,
+      "pct": 9.46,
+      "overdue": 7,
+      "score": 0.3084
+    },
+    {
+      "number": 39,
+      "count": 7,
+      "pct": 9.46,
+      "overdue": 7,
+      "score": 0.3084
+    },
+    {
+      "number": 22,
+      "count": 7,
+      "pct": 9.46,
+      "overdue": 6,
+      "score": 0.3018
+    },
+    {
+      "number": 31,
+      "count": 6,
+      "pct": 8.11,
+      "overdue": 14,
+      "score": 0.3168
+    },
+    {
+      "number": 21,
+      "count": 6,
+      "pct": 8.11,
+      "overdue": 13,
+      "score": 0.3102
+    },
+    {
+      "number": 1,
+      "count": 6,
+      "pct": 8.11,
+      "overdue": 1,
+      "score": 0.2316
+    },
+    {
+      "number": 36,
+      "count": 4,
+      "pct": 5.41,
+      "overdue": 5,
+      "score": 0.1828
+    },
+    {
+      "number": 37,
+      "count": 2,
+      "pct": 2.7,
+      "overdue": 61,
+      "score": 0.475
+    }
+  ],
+  "statisticalPicks": [
+    {
+      "numbers": [
+        30,
+        23,
+        19,
+        2,
+        34
+      ],
+      "sum": 108,
+      "odd": 2,
+      "score": 2.7336
+    },
+    {
+      "numbers": [
+        30,
+        23,
+        7,
+        6,
+        12
+      ],
+      "sum": 78,
+      "odd": 2,
+      "score": 2.6586
+    },
+    {
+      "numbers": [
+        19,
+        2,
+        7,
+        6,
+        37
+      ],
+      "sum": 71,
+      "odd": 3,
+      "score": 2.5139
+    },
+    {
+      "numbers": [
+        34,
+        12,
+        37,
+        8,
+        25
+      ],
+      "sum": 116,
+      "odd": 2,
+      "score": 2.408
+    },
+    {
+      "numbers": [
+        8,
+        25,
+        32,
+        17,
+        35
+      ],
+      "sum": 117,
+      "odd": 3,
+      "score": 2.2997
+    }
+  ],
+  "disclaimer": "彩券每期獨立隨機，歷史統計無法預測未來，以下僅供參考、非中獎保證。"
+}

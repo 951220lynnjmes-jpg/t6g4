@@ -1,0 +1,6 @@
+[submodule "hw7"]
+	path = hw7
+	url = https://github.com/951220lynnjmes-jpg/todo-app.git
+[submodule "20261030/LifeFlow"]
+	path = 20261030/LifeFlow
+	url = https://github.com/951220lynnjmes-jpg/lifeflow.git

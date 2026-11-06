@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>待辦事項</title>
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <main class="app">
+            <header class="app-header">
+                <div>
+                    <p class="eyebrow">Rust + Node.js 測試示範</p>
+                    <h1>待辦事項</h1>
+                </div>
+                <p class="remaining" data-testid="remaining">0 項未完成</p>
+            </header>
+
+            <form class="todo-form" data-testid="todo-form" autocomplete="off">
+                <label class="sr-only" for="new-todo">新增待辦事項</label>
+                <input
+                    id="new-todo"
+                    data-testid="new-todo"
+                    maxlength="200"
+                    placeholder="今天要做什麼？"
+                />
+                <button type="submit" data-testid="add-todo">新增</button>
+            </form>
+
+            <p class="error" data-testid="error" role="alert" hidden></p>
+
+            <nav class="filters" aria-label="篩選待辦事項">
+                <button type="button" data-filter="all" data-testid="filter-all" class="active">
+                    全部
+                </button>
+                <button type="button" data-filter="active" data-testid="filter-active">
+                    未完成
+                </button>
+                <button type="button" data-filter="completed" data-testid="filter-completed">
+                    已完成
+                </button>
+            </nav>
+
+            <ul class="todo-list" data-testid="todo-list"></ul>
+            <p class="empty" data-testid="empty-state" hidden>目前沒有待辦事項</p>
+        </main>
+
+        <script type="module" src="/app.js"></script>
+    </body>
+</html>
