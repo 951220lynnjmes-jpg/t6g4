@@ -10,7 +10,15 @@
 - 內建符號：`SP`、`LCL`、`ARG`、`THIS`、`THAT`、`R0`～`R15`、`SCREEN`、`KBD`
 - 支援完整 A-instruction 與 C-instruction（dest、comp、jump）
 
-## 使用方式
+## 最簡單的測試方式
+
+直接雙擊：
+
+- `demo.bat`：組譯 `examples/Add.asm`，並顯示產生的機器碼
+- `run_tests.bat`：執行全部單元測試
+- `assemble.bat`：把任何 `.asm` 檔拖曳到這個檔案上即可組譯
+
+## 命令列使用方式
 
 ```sh
 python Assembler.py Add.asm
@@ -32,3 +40,5 @@ python -m unittest discover -s tests -v
 
 - `Assembler.py`：組譯器主程式與命令列介面
 - `tests/test_assembler.py`：單元測試
+- `examples/Add.asm`：範例程式
+- `demo.bat`、`run_tests.bat`、`assemble.bat`：Windows 快速操作腳本
