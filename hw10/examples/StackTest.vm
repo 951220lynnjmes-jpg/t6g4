@@ -1,0 +1,22 @@
+// Chapter 7: all arithmetic / logical / comparison commands.
+// Results are left on the stack, starting at RAM[256].
+push constant 17
+push constant 17
+eq
+push constant 17
+push constant 16
+eq
+push constant 16
+push constant 17
+gt
+push constant 16
+push constant 17
+lt
+push constant 892
+push constant 891
+sub
+push constant 15
+not
+neg
+and
+or

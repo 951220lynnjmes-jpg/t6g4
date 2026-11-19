@@ -1,0 +1,5 @@
+// Chapter 7: push two constants and add them.
+// Result: RAM[256] = 15
+push constant 7
+push constant 8
+add

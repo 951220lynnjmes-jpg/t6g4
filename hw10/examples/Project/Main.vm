@@ -1,0 +1,4 @@
+function Main.main 0
+push constant 21
+call Math.twice 1
+return

@@ -1,0 +1,16 @@
+// Chapter 7: label / goto / if-goto.
+// temp 0 is used as the loop counter; final stack value is 5.
+push constant 0
+pop temp 0
+label LOOP
+push temp 0
+push constant 1
+add
+pop temp 0
+push temp 0
+push constant 5
+lt
+if-goto LOOP
+goto DONE
+label DONE
+push temp 0
