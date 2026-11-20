@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hack-assembler-lynn"
+version = "0.1.0"
+description = "Nand2Tetris Hack assembler: convert .asm source into 16-bit .hack machine code"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "lynn" }]
+keywords = ["nand2tetris", "hack", "assembler", "compiler"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Compilers",
+]
+
+[project.urls]
+Homepage = "https://github.com/951220lynnjmes-jpg/t6g4"
+Repository = "https://github.com/951220lynnjmes-jpg/t6g4"
+
+[project.scripts]
+hack-asm = "hack_assembler.assembler:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+hack_assembler = ["py.typed"]
